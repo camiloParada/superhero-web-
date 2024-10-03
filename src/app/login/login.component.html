@@ -1,0 +1,6 @@
+<form [formGroup]="loginForm">
+  <input type="text" formControlName="email" placeholder="john.doe@mail.test">
+  <input type="password" formControlName="password" placeholder="********">
+
+  <button (click)="submit()">Entrar</button>
+</form>
