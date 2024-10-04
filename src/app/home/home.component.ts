@@ -11,6 +11,7 @@ import { Superhero } from '../shared/interfaces/superhero.interface';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public isLoading: boolean;
   public superhero!: string;
   public superheroes!: SuperheroName[];
   public superheroesFiltered!: SuperheroName[];
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
   private readonly _superheroService = inject(SuperheroService);
 
   constructor() {
+    this.isLoading = false;
     this._unsubscribeAll = new Subject();
   }
 
@@ -48,6 +50,7 @@ export class HomeComponent implements OnInit {
   }
 
   selectSuperhero(superhero: { id: number; name: string }) {
+    this.isLoading = true;
     this.superhero = superhero.name;
     this.superheroSelected = superhero;
 
@@ -58,6 +61,7 @@ export class HomeComponent implements OnInit {
         if (res.response === 'success') {
           this.superheroInfo = res;
           this.superheroesFiltered = [];
+          this.isLoading = false;
         }
       });
   }

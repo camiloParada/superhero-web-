@@ -26,9 +26,15 @@
       </div>
     </div>
 
-    @if (superheroInfo) {
-      <section-info
-        [superheroInfo]="superheroInfo"></section-info>
+    @if (isLoading) {
+      <div class="sh--loader-wrapper">
+        <loader></loader>
+      </div>
+    } @else {
+      @if (superheroInfo) {
+        <section-info
+          [superheroInfo]="superheroInfo"></section-info>
+      }
     }
   </div>
 </div>

@@ -4,11 +4,12 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { InfoComponent } from './components/info/info.component';
 import { BattleComponent } from './components/battle/battle.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
-  exports: [InfoComponent, BattleComponent],
-  declarations: [InfoComponent, BattleComponent],
+  exports: [InfoComponent, BattleComponent, LoaderComponent],
+  declarations: [InfoComponent, BattleComponent, LoaderComponent],
   imports: [CommonModule, NgbNavModule],
 })
 export class SharedModule {}

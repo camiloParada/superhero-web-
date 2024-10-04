@@ -12,10 +12,10 @@ export class InfoComponent {
   @Input() superheroInfo!: Superhero;
 
   public flipCard!: boolean;
-
   public tabActive: number;
 
   constructor() {
+    this.flipCard = false;
     this.tabActive = 1;
   }
 

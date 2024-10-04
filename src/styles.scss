@@ -10,10 +10,29 @@
 }
 
 body {
+  backdrop-filter: brightness(0.35);
   background-attachment: fixed;
   background-image: url('assets/background/main-background.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   min-height: 100vh;
+}
+
+.sh--loader-wrapper {
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .loader-container {
+    align-items: center;
+    display: flex;
+    height: 52%;
+    justify-content: center;
+
+    .loader {
+      height: 130px;
+      width: 130px;
+    }
+  }
 }
