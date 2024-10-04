@@ -1,0 +1,130 @@
+.sh--info-container {
+  margin: 60px 0px;
+
+  .sh--image-wrapper {
+    perspective: 1000px;
+
+    .card {
+      background: rgb(181, 0, 0);
+      background: -moz-radial-gradient(
+        circle,
+        rgba(181, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      background: -webkit-radial-gradient(
+        circle,
+        rgba(181, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      background: radial-gradient(
+        circle,
+        rgba(181, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b50000", endColorstr="#000000", GradientType=1);
+      border: 1px solid rgb(255 255 255 / 13%);
+      box-shadow: 0px 0px 14px 6px rgb(0 0 0 / 47%);
+      cursor: pointer;
+      height: 620px;
+      margin: 0 auto;
+      max-width: 380px;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+
+      .card-front {
+        backface-visibility: hidden;
+        bottom: 20px;
+        left: 20px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+
+        .sh--image {
+          position: relative;
+
+          .sh--superhero-id {
+            font-size: 2rem;
+            font-weight: 600;
+            position: absolute;
+            user-select: none;
+            top: -10px;
+          }
+
+          img {
+            border-radius: 170px 10px 170px 10px;
+            width: 100%;
+          }
+        }
+
+        .sh--name {
+          color: #fff;
+          padding: 20px 10px 0px 10px;
+
+          h2 {
+            user-select: none;
+          }
+
+          p {
+            span {
+              display: block;
+              font-size: 0.8rem;
+              user-select: none;
+            }
+          }
+        }
+      }
+
+      .card-back {
+        backface-visibility: hidden;
+        bottom: 20px;
+        left: 20px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        transform: rotateY(180deg);
+
+        .sh--info {
+          user-select: none;
+
+          p {
+            background-color: #00000063;
+            border-radius: 4px;
+            height: 330px;
+            overflow-y: scroll;
+            padding: 10px 15px;
+
+            span {
+              display: block;
+              font-size: 0.8rem;
+              margin: 8px 0;
+              user-select: none;
+            }
+          }
+
+          h4 {
+            margin-top: 20px;
+          }
+
+          b {
+            font-size: 0.8rem;
+          }
+
+          .progress {
+            background-color: #1a00006e;
+            margin-top: 5px;
+
+            .progress-bar {
+              background-color: #896502;
+            }
+          }
+        }
+      }
+
+      &.flip-card {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}

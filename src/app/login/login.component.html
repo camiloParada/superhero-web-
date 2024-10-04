@@ -1,6 +1,14 @@
-<form [formGroup]="loginForm">
-  <input type="text" formControlName="email" placeholder="john.doe@mail.test">
-  <input type="password" formControlName="password" placeholder="********">
+<div class="sh--login-container">
+  <div class="sh--login-wrapper">
+    <form [formGroup]="loginForm">
 
-  <button (click)="submit()">Entrar</button>
-</form>
+      <div class="sh--login-box">
+        <input type="text" formControlName="email" placeholder="john.doe@mail.test">
+        <input type="password" formControlName="password" placeholder="********">
+
+        <button (click)="submit()">Entrar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

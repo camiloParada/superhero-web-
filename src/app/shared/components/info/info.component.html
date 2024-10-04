@@ -1,0 +1,120 @@
+<div class="sh--info-container">
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <div class="sh--image-wrapper">
+        <div class="card" (click)="flipCardAction()" (keypress)="null" [ngClass]="flipCard ? 'flip-card' : null">
+
+          <div class="card-front">
+            <div class="sh--image">
+              <span class="sh--superhero-id">{{ superheroInfo.id }}</span>
+              <img [src]="superheroInfo.image.url" [alt]="superheroInfo.name" />
+            </div>
+            <div class="sh--name">
+              <h2>{{ superheroInfo.name }}</h2>
+              <div class="row">
+                <div class="col-6">
+                  <p>
+                    <span><b>Gender</b>: {{ superheroInfo.appearance.gender }}</span>
+                    <span><b>Race</b>: {{ superheroInfo.appearance.race }}</span>
+                    <span><b>Height</b>: {{ superheroInfo.appearance.height[1] }}</span>
+                  </p>
+                </div>
+                <div class="col-6">
+                  <p>
+                    <span><b>Weight</b>: {{ superheroInfo.appearance.weight[1] }}</span>
+                    <span><b>Eye Color</b>: {{ superheroInfo.appearance["eye-color"] }}</span>
+                    <span><b>Hair color</b>: {{ superheroInfo.appearance["hair-color"] }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-back">
+            <div class="sh--info">
+              <div class="row">
+                <div class="col-12">
+                  <p>
+                    <span><b>Full name</b>: {{ superheroInfo.biography['full-name'] }}</span>
+                    <span><b>Altr Egos</b>: {{ superheroInfo.biography['alter-egos'] }}</span>
+                    <span><b>Aliases</b>:
+                      <ul>
+                        @for (item of superheroInfo.biography.aliases; track $index) {
+                          <li>{{ item }}</li>
+                        }
+                      </ul>
+                    </span>
+                    <span><b>Place of birth</b>: {{ superheroInfo.biography['place-of-birth'] }}</span>
+                    <span><b>Alignment</b>: {{ superheroInfo.biography.alignment }}</span>
+                  </p>
+                  <h4>Powerstats</h4>
+                  <div class="row">
+                    <div class="col-4">
+                      <b>Inteligence</b>
+                    </div>
+                    <div class="col-8">
+                      <div class="progress">
+                        <div class="progress-bar" [style]="'width: ' + superheroInfo.powerstats.intelligence + '%'">{{ superheroInfo.powerstats.intelligence }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <b>Strength</b>
+                    </div>
+                    <div class="col-8">
+                      <div class="progress">
+                        <div class="progress-bar" [style]="'width: ' + superheroInfo.powerstats.strength + '%'">{{ superheroInfo.powerstats.strength }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <b>Speed</b>
+                    </div>
+                    <div class="col-8">
+                      <div class="progress">
+                        <div class="progress-bar" [style]="'width: ' + superheroInfo.powerstats.speed + '%'">{{ superheroInfo.powerstats.speed }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <b>Durability</b>
+                    </div>
+                    <div class="col-8">
+                      <div class="progress">
+                        <div class="progress-bar" [style]="'width: ' + superheroInfo.powerstats.durability + '%'">{{ superheroInfo.powerstats.durability }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <b>Power</b>
+                    </div>
+                    <div class="col-8">
+                      <div class="progress">
+                        <div class="progress-bar" [style]="'width: ' + superheroInfo.powerstats.power + '%'">{{ superheroInfo.powerstats.power }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <b>Combat</b>
+                    </div>
+                    <div class="col-8">
+                      <div class="progress">
+                        <div class="progress-bar" [style]="'width: ' + superheroInfo.powerstats.combat + '%'">{{ superheroInfo.powerstats.combat }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
