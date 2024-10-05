@@ -83,18 +83,20 @@
     </div>
   </div>
 
-  @if (fightStarting && countdown === 0) {
+
     <div class="sh--progress-fight-bar">
       <div class="row">
         <div class="col-12">
-          <div class="progress progress-fight">
-            <div
-              class="progress-bar"
-              [style]="'width:' + fightStatus + '%'"
-            ></div>
-          </div>
+          @if (fightStarting && countdown === 0) {
+            <div class="progress progress-fight">
+              <div
+                class="progress-bar"
+                [style]="'width:' + fightStatus + '%'"
+              ></div>
+            </div>
+          }
         </div>
       </div>
     </div>
-  }
+
 </div>
