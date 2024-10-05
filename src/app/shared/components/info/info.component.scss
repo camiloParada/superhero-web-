@@ -127,3 +127,14 @@
     }
   }
 }
+
+
+@media only screen and (max-width: 768px) {
+  .sh--info-container {
+    .sh--image-wrapper {
+      .card {
+        height: 590px;
+      }
+    }
+  }
+}

@@ -15,10 +15,10 @@
         padding: 10px 20px;
         margin: 0 auto;
         min-width: 150px;
-        transition: .3s ease-in-out;
+        transition: 0.3s ease-in-out;
 
         &:disabled {
-          opacity: .3;
+          opacity: 0.3;
         }
       }
     }
@@ -135,10 +135,10 @@
       padding: 10px 20px;
       margin: 0 auto;
       min-width: 250px;
-      transition: .3s ease-in-out;
+      transition: 0.3s ease-in-out;
 
       &:disabled {
-        opacity: .3;
+        opacity: 0.3;
       }
 
       &:hover:not(:disabled) {
@@ -163,6 +163,53 @@
       .progress-bar {
         background-color: #cd600d;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sh--battle-ring {
+    .sh--opponent {
+      .sh--remove-opponent {
+        button {
+          min-width: 110px;
+        }
+      }
+
+      .mini-card {
+        height: 200px;
+        max-width: 150px;
+
+        .card-front {
+          bottom: 10px;
+          left: 10px;
+          right: 10px;
+          top: 10px;
+
+          .sh--name {
+            padding: 5px 5px 0px 5px;
+
+            h2 {
+              font-size: 1rem;
+            }
+          }
+        }
+
+        .winner-banner {
+          font-size: 2rem;
+          height: 55px;
+          left: 0px;
+          width: 100%;
+        }
+      }
+    }
+
+    .sh--versus-image {
+      margin: 120px 0px 50px 0px;
+    }
+
+    .sh--button-battle {
+      margin-top: 170px;
     }
   }
 }
