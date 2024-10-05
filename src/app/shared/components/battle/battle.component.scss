@@ -1,0 +1,141 @@
+.sh--battle-ring {
+  background-color: #00000054;
+  padding: 40px 0;
+
+  .sh--opponent {
+    .mini-card {
+      background: rgb(181, 0, 0);
+      background: -moz-radial-gradient(
+        circle,
+        rgba(181, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      background: -webkit-radial-gradient(
+        circle,
+        rgba(181, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      background: radial-gradient(
+        circle,
+        rgba(181, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b50000", endColorstr="#000000", GradientType=1);
+      border: 1px solid rgb(255 255 255 / 13%);
+      box-shadow: 0px 0px 14px 6px rgb(0 0 0 / 47%);
+      cursor: pointer;
+      height: 430px;
+      margin: 0 auto;
+      max-width: 285px;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+
+      .card-front {
+        bottom: 20px;
+        left: 20px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+
+        .sh--image {
+          img {
+            width: 100%;
+          }
+        }
+
+        .sh--name {
+          color: #fff;
+          padding: 20px 10px 0px 10px;
+
+          h2 {
+            text-align: center;
+            user-select: none;
+          }
+        }
+      }
+
+      &.winner {
+        transform: scale(1.1);
+      }
+
+      &.loser {
+        filter: grayscale(1);
+        transform: scale(0.9);
+      }
+
+      .winner-banner {
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 17px 1px #fee00024;
+        bottom: 0;
+        font-size: 3rem;
+        height: 70px;
+        left: -30px;
+        margin: 0 auto;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 45%;
+        width: 120%;
+      }
+    }
+
+    &.opponent-one {
+      img {
+        border-radius: 20px 10px 130px 10px;
+      }
+    }
+
+    &.opponent-two {
+      img {
+        border-radius: 10px 20px 10px 130px;
+      }
+    }
+  }
+
+  .sh--versus-image {
+    margin: 50px 0px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .sh--button-battle {
+    display: flex;
+    justify-content: center;
+
+    button {
+      background-color: #3c0000;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      margin: 0 auto;
+      min-width: 250px;
+      transition: .3s ease-in-out;
+
+      &:disabled {
+        opacity: .3;
+      }
+    }
+
+    .sh--countdown {
+      font-size: 5rem;
+    }
+  }
+
+  .sh--progress-fight-bar {
+    margin-top: 30px;
+
+    .progress-fight {
+      background-color: #5a0dcd;
+      margin: 0 auto;
+      width: 85%;
+
+      .progress-bar {
+        background-color: #cd600d;
+      }
+    }
+  }
+}

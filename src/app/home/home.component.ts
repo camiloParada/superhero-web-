@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   public superhero!: string;
   public superheroes!: SuperheroName[];
   public superheroesFiltered!: SuperheroName[];
+  public superheroesForBattle: Superhero[];
   public superheroInfo!: Superhero;
   public superheroSelected!: SuperheroName | null;
 
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   constructor() {
     this.isLoading = false;
     this._unsubscribeAll = new Subject();
+    this.superheroesForBattle = [];
   }
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  selectSuperhero(superhero: { id: number; name: string }) {
+  selectSuperhero(superhero: SuperheroName) {
     this.isLoading = true;
     this.superhero = superhero.name;
     this.superheroSelected = superhero;
@@ -64,6 +66,14 @@ export class HomeComponent implements OnInit {
           this.isLoading = false;
         }
       });
+  }
+
+  chooseSuperheroForBattle(Superhero: Superhero) {
+    if (this.superheroesForBattle.length === 2) {
+      return;
+    }
+
+    this.superheroesForBattle.push(Superhero);
   }
 
   ngOnDestroy(): void {

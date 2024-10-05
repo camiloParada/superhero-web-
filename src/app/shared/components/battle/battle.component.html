@@ -1,1 +1,94 @@
-<p>battle works!</p>
+<div class="sh--battle-ring">
+  <div class="row">
+    <div class="col-5">
+      <div class="sh--opponent opponent-one">
+        @if (superheroesForBattle[0]) {
+        <div
+          class="mini-card"
+          [ngClass]="
+            fightWinner ? (fightWinner === 'ONE' ? 'winner' : 'loser') : null
+          "
+        >
+          <div class="card-front">
+            <div class="sh--image">
+              <img
+                [src]="superheroesForBattle[0].image.url"
+                [alt]="superheroesForBattle[0].name"
+              />
+            </div>
+            <div class="sh--name">
+              <h2>{{ superheroesForBattle[0].name }}</h2>
+            </div>
+          </div>
+          @if (fightWinner && fightWinner === 'ONE') {
+          <span class="winner-banner">Winner</span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div class="sh--versus-image">
+        <img src="assets/images/versus.png" alt="" />
+      </div>
+      <div class="sh--button-battle">
+        @if (fightStarting && countdown > 0) {
+          <span class="sh--countdown">{{ countdown }}</span>
+        }
+
+        @if (!fightStarting) {
+          <button
+            (click)="startFight()"
+            [disabled]="superheroesForBattle.length < 2"
+          >
+            Start fight
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="col-5">
+      <div class="sh--opponent opponent-two">
+        @if (superheroesForBattle[1]) {
+        <div
+          class="mini-card"
+          [ngClass]="
+            fightWinner ? (fightWinner === 'TWO' ? 'winner' : 'loser') : null
+          "
+        >
+          <div class="card-front">
+            <div class="sh--image">
+              <img
+                [src]="superheroesForBattle[1].image.url"
+                [alt]="superheroesForBattle[1].name"
+              />
+            </div>
+            <div class="sh--name">
+              <h2>{{ superheroesForBattle[1].name }}</h2>
+            </div>
+          </div>
+          @if (fightWinner && fightWinner === 'TWO') {
+          <span class="winner-banner">Winner</span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  @if (fightStarting && countdown === 0) {
+    <div class="sh--progress-fight-bar">
+      <div class="row">
+        <div class="col-12">
+          <div class="progress progress-fight">
+            <div
+              class="progress-bar"
+              [style]="'width:' + fightStatus + '%'"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

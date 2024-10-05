@@ -27,8 +27,8 @@ body {
   .loader-container {
     align-items: center;
     display: flex;
-    height: 52%;
     justify-content: center;
+    min-height: 370px;
 
     .loader {
       height: 130px;

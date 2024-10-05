@@ -3,11 +3,11 @@
     <h1>SuperheroGram</h1>
 
     <div class="row justify-content-center">
-      <div class="col-6">
+      <div class="col-12 col-sm-6">
         <div class="sh--searcher">
           <input
             type="search"
-            placeholder="Buscar superhéroe o villano... "
+            placeholder="Search for superhero or villain..."
             [(ngModel)]="superhero"
             (ngModelChange)="filterSuperheroes()"
             list="superheroes-list"
@@ -26,15 +26,32 @@
       </div>
     </div>
 
-    @if (isLoading) {
+    <div class="sh--info-wrapper">
+      @if (isLoading) {
       <div class="sh--loader-wrapper">
         <loader></loader>
       </div>
-    } @else {
-      @if (superheroInfo) {
-        <section-info
-          [superheroInfo]="superheroInfo"></section-info>
+      } @else { @if (superheroInfo) {
+      <section-info [superheroInfo]="superheroInfo"></section-info>
+
+      <div class="sh--button-select-wrapper">
+        <button
+          class="sh--button-select"
+          (click)="chooseSuperheroForBattle(superheroInfo)"
+          [disabled]="superheroesForBattle.length === 2"
+        >
+          Choose for battle
+        </button>
+      </div>
+      } }
+    </div>
+
+    <div class="sh--battle-container">
+      @if (superheroesForBattle && superheroesForBattle.length) {
+      <section-battle
+        [superheroesForBattle]="superheroesForBattle"
+      ></section-battle>
       }
-    }
+    </div>
   </div>
 </div>
