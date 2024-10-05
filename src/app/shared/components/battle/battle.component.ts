@@ -21,7 +21,7 @@ export class BattleComponent {
 
   constructor() {
     this.countdown = 5;
-    this.fightStatus = 0;
+    this.fightStatus = 50;
     this.fightResultsOpponentOne = 0;
     this.fightResultsOpponentTwo = 0;
     this.fightStarting = false;
@@ -51,6 +51,11 @@ export class BattleComponent {
         this.fightResults();
       }
     }, 1000);
+  }
+
+  removeOpponent(index: number) {
+    this.fightWinner = '';
+    this.superheroesForBattle.splice(index, 1);
   }
 
   intelligenceFight(opponentOneValue: number, opponentTwoValue: number) {
@@ -123,7 +128,6 @@ export class BattleComponent {
     let countLapsed = 0;
     this.fightInterval = setInterval(() => {
       countLapsed++;
-      console.log('countLapsed => ', countLapsed);
       this.fightStatus = this.randomIntFromInterval(10, 90);
 
       if (countLapsed === 8) {

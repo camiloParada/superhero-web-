@@ -3,6 +3,26 @@
   padding: 40px 0;
 
   .sh--opponent {
+    .sh--remove-opponent {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      button {
+        background-color: #3c0000;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        margin: 0 auto;
+        min-width: 150px;
+        transition: .3s ease-in-out;
+
+        &:disabled {
+          opacity: .3;
+        }
+      }
+    }
+
     .mini-card {
       background: rgb(181, 0, 0);
       background: -moz-radial-gradient(
@@ -50,6 +70,8 @@
           padding: 20px 10px 0px 10px;
 
           h2 {
+            font-size: 1.3rem;
+            line-height: 1;
             text-align: center;
             user-select: none;
           }
@@ -117,6 +139,11 @@
 
       &:disabled {
         opacity: .3;
+      }
+
+      &:hover:not(:disabled) {
+        box-shadow: 0px 0px 20px 4px #f3e3007d;
+        letter-spacing: 3px;
       }
     }
 

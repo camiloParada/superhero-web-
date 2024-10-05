@@ -3,10 +3,11 @@
     <form [formGroup]="loginForm">
 
       <div class="sh--login-box">
+        <h1>BattleVerse</h1>
         <input type="text" formControlName="email" placeholder="john.doe@mail.test">
         <input type="password" formControlName="password" placeholder="********">
 
-        <button (click)="submit()">Entrar</button>
+        <button (click)="submit()" [disabled]="isLoading">Entrar</button>
       </div>
 
     </form>

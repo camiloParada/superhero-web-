@@ -23,6 +23,10 @@
       margin: 0 auto;
       padding: 30px 50px;
 
+      h1 {
+        margin-bottom: 30px;
+      }
+
       input {
         background-color: #ffffff75;
         border: none;
@@ -33,6 +37,11 @@
 
         &::placeholder {
           color: #363636;
+        }
+
+        &:focus {
+          border: none;
+          outline: auto #cba300;
         }
       }
 
@@ -46,7 +55,13 @@
         width: 100%;
 
         &:hover {
-          letter-spacing: 1px;
+          box-shadow: 0px 0px 13px 2px #cba3007d;
+          letter-spacing: 2px;
+          user-select: none;
+        }
+
+        &:disabled {
+          opacity: .3;
         }
       }
     }

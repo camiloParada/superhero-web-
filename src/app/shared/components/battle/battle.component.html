@@ -3,6 +3,9 @@
     <div class="col-5">
       <div class="sh--opponent opponent-one">
         @if (superheroesForBattle[0]) {
+        <div class="sh--remove-opponent">
+          <button (click)="removeOpponent(0)" [disabled]="fightStarting">Remove</button>
+        </div>
         <div
           class="mini-card"
           [ngClass]="
@@ -51,6 +54,9 @@
     <div class="col-5">
       <div class="sh--opponent opponent-two">
         @if (superheroesForBattle[1]) {
+        <div class="sh--remove-opponent">
+          <button (click)="removeOpponent(1)" [disabled]="fightStarting">Remove</button>
+        </div>
         <div
           class="mini-card"
           [ngClass]="

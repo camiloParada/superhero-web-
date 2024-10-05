@@ -11,6 +11,7 @@ import { AuthenticationService } from '../auth/services/authentication.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  public isLoading: boolean;
   public loginForm: FormGroup;
 
   private _unsubscribeAll: Subject<any>;
@@ -21,6 +22,7 @@ export class LoginComponent {
 
   constructor() {
     this._unsubscribeAll = new Subject();
+    this.isLoading = false;
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -37,10 +39,13 @@ export class LoginComponent {
       return;
     }
 
+    this.isLoading = true;
+
     this._authenticationService
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe(() => {
+        this.isLoading = false;
         this.router.navigate(['/']);
       });
   }

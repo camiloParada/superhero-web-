@@ -4,6 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { SuperheroService } from './superhero.service';
 import { SuperheroName } from '../shared/interfaces/superhero-name.interface';
 import { Superhero } from '../shared/interfaces/superhero.interface';
+import { AuthenticationService } from '../auth/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { Superhero } from '../shared/interfaces/superhero.interface';
 })
 export class HomeComponent implements OnInit {
   public isLoading: boolean;
+  public notification: string;
   public superhero!: string;
   public superheroes!: SuperheroName[];
   public superheroesFiltered!: SuperheroName[];
@@ -21,11 +23,13 @@ export class HomeComponent implements OnInit {
 
   private _unsubscribeAll: Subject<any>;
   private readonly _superheroService = inject(SuperheroService);
+  private readonly _authenticationService = inject(AuthenticationService);
 
   constructor() {
     this.isLoading = false;
     this._unsubscribeAll = new Subject();
     this.superheroesForBattle = [];
+    this.notification = '';
   }
 
   ngOnInit(): void {
@@ -45,6 +49,8 @@ export class HomeComponent implements OnInit {
     if (this.superhero.trim() === '') {
       return;
     }
+
+    this.notification = '';
 
     this.superheroesFiltered = this.superheroes.filter((sp) =>
       sp.name.toLowerCase().includes(this.superhero.toLowerCase())
@@ -68,12 +74,23 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  chooseSuperheroForBattle(Superhero: Superhero) {
+  chooseSuperheroForBattle(superhero: Superhero) {
     if (this.superheroesForBattle.length === 2) {
       return;
     }
 
-    this.superheroesForBattle.push(Superhero);
+    if (this.superheroesForBattle.find((s) => s.id === superhero.id)) {
+      this.notification = 'The character has already been selected';
+      return;
+    }
+
+    this.notification = '';
+
+    this.superheroesForBattle.push(superhero);
+  }
+
+  logout() {
+    this._authenticationService.logout();
   }
 
   ngOnDestroy(): void {

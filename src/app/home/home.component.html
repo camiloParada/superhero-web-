@@ -1,6 +1,9 @@
 <div class="sh--container">
   <div class="sh--container-wrapper">
-    <h1>SuperheroGram</h1>
+    <div class="sh--logout" (click)="logout()" (keypress)="null">
+      <img src="assets/svg/escape.svg" alt="LogOut">
+    </div>
+    <h1>BattleVerse</h1>
 
     <div class="row justify-content-center">
       <div class="col-12 col-sm-6">
@@ -42,6 +45,7 @@
         >
           Choose for battle
         </button>
+        <small>{{ notification }}</small>
       </div>
       } }
     </div>

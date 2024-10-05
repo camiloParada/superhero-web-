@@ -8,6 +8,16 @@
     max-width: 1080px;
     width: 100%;
 
+    .sh--logout {
+      cursor: pointer;
+      text-align: right;
+
+      img {
+        filter: invert(1);
+        width: 30px;
+      }
+    }
+
     h1 {
       text-align: center;
     }
@@ -56,6 +66,7 @@
 
       .sh--button-select-wrapper {
         display: flex;
+        flex-direction: column;
         margin: 30px 0;
 
         .sh--button-select {
@@ -70,6 +81,11 @@
           &:disabled {
             opacity: 0.3;
           }
+        }
+
+        small {
+          margin-top: 2px;
+          text-align: center;
         }
       }
     }
